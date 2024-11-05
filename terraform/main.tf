@@ -1,5 +1,8 @@
 provider "aws" {
   region = "us-east-1"
+
+  access_key =  var.access_key 
+  secret_key =  var.secret_key
 }
 
 # VPC
@@ -123,7 +126,27 @@ resource "aws_security_group" "ml_frontend_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
     description = "SSH access"
   }
-
+  ingress {
+    from_port   = 9090
+    to_port     = 9090
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "SSH access"
+  }
+  ingress {
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "SSH access"
+  }
+  ingress {
+    from_port   = 9100
+    to_port     = 9100
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "SSH access"
+  }
   ingress {
     from_port   = 80
     to_port     = 80

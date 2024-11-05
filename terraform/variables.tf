@@ -1,3 +1,9 @@
+variable "access_key" { 
+}
+
+variable "secret_key" {
+}
+
 variable "vpc_cidr_block" {
   description = "CIDR block for the ML VPC"
   default     = "10.0.0.0/16"
