@@ -70,7 +70,7 @@ history = model.fit(
     callbacks=callbacks
 )
 
-model.save('/home/ubuntu/models/pneumonia_model.keras')  # Using .keras format instead of .h5
+model.save('/home/ubuntu/CNN_deploy/model/pneumonia_model.keras')  # Using .keras format instead of .h5
 # Load the trained model for inference
 from tensorflow.keras.models import load_model
 
