@@ -1,4 +1,4 @@
-provider "aws" {
+"aws" {
   region = "us-east-1"
 
   access_key =  var.access_key 
@@ -131,14 +131,14 @@ resource "aws_security_group" "ml_frontend_security_group" {
     to_port     = 9090
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    description = "SSH access"
+    description = "Prometheus"
   }
   ingress {
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    description = "SSH access"
+    description = "Grafana"
   }
   ingress {
     from_port   = 9100
@@ -210,6 +210,14 @@ resource "aws_security_group" "ml_backend_security_group" {
     protocol        = "tcp"
     security_groups = [aws_security_group.ml_frontend_security_group.id]
     description     = "API access from frontend"
+  }
+  
+  ingress {
+    from_port       = 5001
+    to_port         = 5001
+    protocol        = "tcp"
+    security_groups = [aws_security_group.ml_frontend_security_group.id]
+    description     = "Gunicorn"
   }
   
   ingress {
