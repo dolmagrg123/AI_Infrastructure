@@ -11,6 +11,9 @@ Additionally, concerns have been raised about model performance, as predictions 
 
 ![Screenshot 2024-10-26 130236](https://github.com/user-attachments/assets/43d32683-b65d-471f-a58f-c87a33c8529b)
 
+#### Purpose
+The purpose of this project is to create a reliable system for detecting pneumonia in X-ray images, aiding doctors by providing fast and accurate predictions through a neural network model.
+
 Please follow the steps below.
 
 ## Steps
@@ -133,24 +136,20 @@ Make sure that the frontend api is up.
 E. **Monitor and Fix Model**
    - Update the model to accurately detect pneumonia in scans. When you update your model (cnn.py), you have to do steps 5 and 6 again. 
 
----
 
-## Documentation
-You are responsible for creating a README.md in your repo with the following:
-
-### Purpose
-What is the purpose of this project?
-
-### Steps
-The application is designed to allow x-ray images to be uploaded via the frontend, processed by a neural network model in the backend, the results stored in Redis to be displayed on the UI. Explain the essential steps taken in order to make sure that the model is accurate and visible on the frontend to the user. Why did you have the steps you did in the order you did?
 
 ### Troubleshooting
-Explain the issues you ran into and how you resolved them.
+
+I was unable to bring up the UI. I had to run the script manually in UI server to bring it up.
+Table is not loading in the UI with the results even though I have copied it to the application server.
+
 
 ### Optimization
-Explain how would you optimize this deployment?
+We can use autoscaling feature from AWS to automatically adjust the required resources to train our model.
+We can also add load balancers to distribute traffic across instances for better performances.
 
 ### Conclusion
-Share what you took away from this project. 
+
+In this project we learned to utilize the private subnets to ensure the security of our application and sensitive data like patients health information. We use monitoring to make sure our application is realiable. Retraining the model over and over again to improve accuracy of the model was important as well.
 
 --- 
